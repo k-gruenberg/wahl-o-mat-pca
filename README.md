@@ -8,3 +8,7 @@ Here is a multidimensional plot, including some more, less relevant, political p
 ![](Twelve-Parties-2D.png "")
 
 You can create these plots yourself using **RStudio** (https://www.rstudio.com/)!
+
+## What is PCA?
+
+A great explanation of PCA, by none other than Dr Mike Pound, can be found here: https://www.youtube.com/watch?v=TJdH6rPA-TI
