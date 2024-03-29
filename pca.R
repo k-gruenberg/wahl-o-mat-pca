@@ -49,7 +49,7 @@ summary(pca)
 
 # 2D plot:
 proj <- as.data.frame(pca$x) 
-ggplot(proj, aes(PC1, PC2, colour = PC3)) +
+ggplot(proj, aes(-PC1, PC2, colour = PC3)) +
   geom_point() +
   geom_text(aes(label=rownames(proj)),hjust="middle", vjust="bottom") +
   labs(caption = "LIN=Linke, GRU=Gruene, FRW=Freie Waehler, PAR=Die Partei, TSP=Tierschutzpartei, PIR=Piratenpartei")
@@ -58,9 +58,9 @@ ggplot(proj, aes(PC1, PC2, colour = PC3)) +
 proj <- data.frame(pca$x[,"PC1"])
 colnames(proj) <- c("PC1")
 print(proj)
-min_PC1 <- min(proj$PC1)*1.1
-max_PC1 <- max(proj$PC1)*1.1
-ggplot(proj, aes(x=PC1, y=0)) +
+min_PC1 <- min(-proj$PC1)*1.1
+max_PC1 <- max(-proj$PC1)*1.1
+ggplot(proj, aes(x=-PC1, y=0)) +
   annotate("segment",x=min_PC1,xend=max_PC1, y=0, yend=0, linewidth=2) +
   annotate("segment",x=min_PC1,xend=min_PC1, y=-0.1,yend=0.1, linewidth=2) +
   annotate("segment",x=max_PC1,xend=max_PC1, y=-0.1,yend=0.1, linewidth=2) +
@@ -74,7 +74,7 @@ ggplot(proj, aes(x=PC1, y=0)) +
         axis.text = element_blank(),
         axis.ticks = element_blank(),
         axis.title = element_blank()) +
-  labs(title="PC1 Wahl-O-Mat Major Parties",
+  labs(title="-PC1 Wahl-O-Mat Major Parties",
        caption = sprintf("The line ranges from %f to %f.", min_PC1, max_PC1))
 # Note: pca$rotation[,"PC1"] will show the weights used to calculate PC1
 
